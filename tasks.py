@@ -16,3 +16,17 @@ class TaskManager:
     def list_tasks(self) -> list[str]:
         """Return a copy of all tasks."""
         return self._tasks.copy()
+
+    def delete_task(self, index: int) -> bool:
+        """
+        Delete a task by its zero-based index.
+
+        Returns:
+            True if the task was deleted.
+            False if the index was invalid.
+        """
+        if index < 0 or index >= len(self._tasks):
+            return False
+
+        del self._tasks[index]
+        return True
